@@ -74,7 +74,7 @@ $ aws iam create-access-key --user-name kops
 # in most cases, set region to 'us-west-1' and output forma to 'json'
 $ aws configure
 
-# Export the variables for kops use
+# Export the variables for kops use (make sure to add to ~/.bash_profile)
 $ export AWS_ACCESS_KEY_ID=<access key>
 $ export AWS_SECRET_ACCESS_KEY=<secret key>
 ```
@@ -85,11 +85,13 @@ Create a S3 bucket to store all information regarding cluster configuration and 
 ```
 $ aws s3api create-bucket --bucket {bucket_name} --region {aws_region} --create-bucket-configuration LocationConstraint={aws_region}
 $ export KOPS_STATE_STORE=s3://{bucket_name}
+# (make sure to add to ~/.bash_profile)
 ```
 
 ### Launching a Kubernetes gossip-based cluster
-Use the following command to launch your cluster.
+Use the following command to launch your cluster. More info here: https://github.com/kubernetes/kops/blob/master/docs/cli/kops_create_cluster.md
 ```
+# aws_zone is usually 'us-west-1a', 'us-west-1b', or 'us-west-1c'
 $ kops create cluster {cluster_name}.k8s.local --zones {aws_zone} --yes
 ```
 After a couple of minutes, you should be able to validate the cluster has been created.
