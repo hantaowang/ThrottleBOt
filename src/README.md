@@ -71,6 +71,7 @@ $ aws iam create-access-key --user-name kops
 ```
 ```
 # set up the aws client to use the new IAM user
+# in most cases, set region to 'us-west-1' and output forma to 'json'
 $ aws configure
 
 # Export the variables for kops use
@@ -80,9 +81,9 @@ $ export AWS_SECRET_ACCESS_KEY=<secret key>
 source: https://github.com/kubernetes/kops/blob/master/docs/aws.md
 
 ### Set up cluster state storage
-Create a S3 bucket to store all information regarding cluster configuration and state.
+Create a S3 bucket to store all information regarding cluster configuration and state. For most instances, set `aws_region` to whichever region you choose in aws configure.
 ```
-$ aws s3api create-bucket --bucket {bucket_name} --region {aws_region}
+$ aws s3api create-bucket --bucket {bucket_name} --region {aws_region} --create-bucket-configuration LocationConstraint={aws_region}
 $ export KOPS_STATE_STORE=s3://{bucket_name}
 ```
 
