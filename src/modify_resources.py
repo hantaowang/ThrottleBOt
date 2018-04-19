@@ -31,8 +31,8 @@ CONVERSION = {"KiB": 1, "MiB": 2**10, "GiB": 2**20}
 MAX_NETWORK_BANDWIDTH = 600
 
 # Sets the resource provision for all containers in a service
-def set_mr_provision(mr, new_mr_allocation, wc):
-    modify_mr_conf(mr, new_mr_allocation, wc)
+def set_mr_provision(mr, new_mr_allocation, wc, redis_db):
+    modify_mr_conf(mr, new_mr_allocation, wc, redis_db)
     for vm_ip,container_id in mr.instances:
         ssh_client = get_client(vm_ip)
         print 'STRESSING VM_IP {0} AND CONTAINER {1}, {2} {3}'.format(vm_ip, container_id, mr.resource, new_mr_allocation)
@@ -53,12 +53,12 @@ def set_mr_provision(mr, new_mr_allocation, wc):
 
 # Set the resource allocation for multiple MRs
 # without committing the change in provisions to Redis
-def set_multiple_mr_provision(mr_to_allocation, wc):
+def set_multiple_mr_provision(mr_to_allocation, wc, redis_db):
     for mr in mr_to_allocation:
-        set_mr_provision(mr, mr_to_allocation[mr], wc)
+        set_mr_provision(mr, mr_to_allocation[mr], wc, redis_db)
 
 # Reset all mr provisions -- remove ALL resource constraints
-def reset_mr_provision(mr, wc):
+def reset_mr_provision(mr, wc, redis_db):
     reset_mr_conf(mr, wc)
     for vm_ip,container_id in mr.instances:
         ssh_client = get_client(vm_ip)
