@@ -1336,9 +1336,9 @@ if __name__ == "__main__":
     if workload_config['type'] == 'elk':
         all_vm_ip = get_actual_vms()
         service_to_deployment = get_service_placements(all_vm_ip)
-        lumbersexual = service_to_deployment["hantaowang/lumbersexual"]
+        lumbersexual = service_to_deployment["mchang6137/lumbersexual"]
         workload_config['request_generator'] = [lumbersexual[0][0]]
-        workload_config['additional_args'] = {'container_id':lumbersexual[0][1], 'command': 'load-latency'}
+        workload_config['additional_args'] = {'container_id':lumbersexual[0][1], 'command': 'load_latency'}
         cmd = 'lumbersexual --load --rate 1000'
 
         # Run load generation on all other lumber machines
