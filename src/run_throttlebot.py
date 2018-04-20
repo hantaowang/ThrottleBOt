@@ -1332,6 +1332,20 @@ if __name__ == "__main__":
         }
         workload_config['instances'] = service_to_deployment['hantaowang/bcd-spark'] + service_to_deployment['hantaowang/bcd-spark-master']
         print workload_config
+
+    if workload_config['type'] == 'elk':
+        all_vm_ip = get_actual_vms()
+        service_to_deployment = get_service_placements(all_vm_ip)
+        lumbersexual = service_to_deployment["hantaowang/lumbersexual"]
+        workload_config['request_generator'] = [lumbersexual[0][0]]
+        workload_config['additional_args'] = {'container_id':lumbersexual[0][1], 'command': 'load-latency'}
+        cmd = 'lumbersexual --load --rate 1000'
+
+        # Run load generation on all other lumber machines
+        for lumber in lumbersexual[1:]:
+            ssh_client = get_client(lumber[0])
+            _, results, error = ssh_client.exec_command(
+                'docker exec {0} sh -c "{1}"'.format(lumber[1], cmd))
         
     experiment_start = time.time()
     run(sys_config, workload_config, filter_config, mr_allocation, args.last_completed_iter)
