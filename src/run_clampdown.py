@@ -1196,7 +1196,21 @@ if __name__ == "__main__":
         }
         workload_config['instances'] = service_to_deployment['hantaowang/bcd-spark'] + service_to_deployment['hantaowang/bcd-spark-master']
         logging.info(workload_config)
-        
+    elif workload_config['type'] == 'apt-app':
+        all_vm_ip = get_actual_vms()
+        workload_config['request_generator'] = [get_master()]        
+        services = get_service_placements(all_vm_ip)
+        workload_config['frontend'] = [services['haproxy:1.7'][0][0]]
+        print "Retrieving frontend:", workload_config['frontend']
+        print "Retrieving request_generator:", workload_config['request_generator']
+    elif workload_config['type'] == 'hotrod':
+        all_vm_ip = get_actual_vms()
+        workload_config['request_generator'] = [get_master()]
+        services = get_service_placements(all_vm_ip)
+        workload_config['frontend'] = [services['nginx:1.7.9'][0][0]]
+        print "Retrieving frontend:", workload_config['frontend']
+        print "Retrieving request_generator:", workload_config['request_generator']       
+ 
     experiment_start = time.time()
     runClampdown(sys_config, workload_config, filter_config, mr_allocation, args.last_completed_iter)
     experiment_end = time.time()
