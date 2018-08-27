@@ -205,7 +205,11 @@ def search_mr_working_set(mr_working_set, services):
 
     return result_list
             
-        
+def is_performance_constant(initial_perf, after_perf, within_x=0):
+    if abs(initial_perf - after_perf) < initial_perf * within_x:
+        return True
+    else:
+        return False        
         
 
     
