@@ -737,6 +737,7 @@ def runClampdown(sys_config, workload_config, filter_config, default_mr_config, 
             for mr in current_mr_config:
                 result_string += '{},{},{},RAW\n'.format(mr.service_name, mr.resource, current_mr_config[mr])
             result_string += '\n\n'
+            logging.info("".format(result_string))
 	    myfile.write(result_string)
 
     print_csv_configuration(current_mr_config)
