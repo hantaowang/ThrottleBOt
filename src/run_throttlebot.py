@@ -428,7 +428,7 @@ def simulate_mr_provisions(redis_db, imr, imr_proposal, nimr_diff_proposal):
 def revert_simulate_mr_provisions(redis_db, imr, nimr_diff_proposal):
     for nimr in nimr_diff_proposal:
         old_nimr_alloc = resource_datastore.read_mr_alloc(redis_db, nimr)
-    set_mr_provision_detect_id_change(redis_db, nimr, int(old_nimr_alloc), None)
+        set_mr_provision_detect_id_change(redis_db, nimr, int(old_nimr_alloc), None)
 
     old_imr_alloc =	resource_datastore.read_mr_alloc(redis_db, imr)
     set_mr_provision_detect_id_change(redis_db, imr, int(old_imr_alloc), None)
@@ -1447,6 +1447,7 @@ if __name__ == "__main__":
         all_vm_ip = get_actual_vms()
         workload_config['request_generator'] = [get_master()]
         services = get_service_placements(all_vm_ip)
+        print services
         workload_config['frontend'] = [services['nginx:1.7.9'][0][0]]
         print "Retrieving frontend:", workload_config['frontend']
         print "Retrieving request_generator:", workload_config['request_generator']
