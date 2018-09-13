@@ -1,0 +1,117 @@
+Original Baseline
+    Tier 1: ['hantaowang/hotrod-customer:log', 'hantaowang/hotrod-frontend', 'haproxy:1.7', 'nginx:1.7.9']
+        CPU-QUOTA: 46.6666666667
+        DISK: 17371409.0667
+        NET: 167253.333333
+    Tier 2: ['hantaowang/hotrod-api:log', 'hantaowang/hotrod-driver:log', 'hantaowang/redis']
+        CPU-QUOTA: 46.6666666667
+        DISK: 17371409.0667
+        NET: 167253.333333
+    Tier 3: ['hantaowang/hotrod-mapper:log', 'hantaowang/hotrod-route:log', 'library/postgres:9.4']
+        CPU-QUOTA: 46.6666666667
+        DISK: 17371409.0667
+        NET: 167253.333333
+Config 0
+    Tier 1: ['hantaowang/hotrod-customer:log', 'hantaowang/hotrod-frontend', 'haproxy:1.7', 'nginx:1.7.9']
+        CPU-QUOTA: 46.6666666667
+        DISK: 26057113.6
+        NET: 250880.0
+    Tier 2: ['hantaowang/hotrod-api:log', 'hantaowang/hotrod-driver:log', 'hantaowang/redis']
+        CPU-QUOTA: 46.6666666667
+        DISK: 8685704.53333
+        NET: 167253.333333
+    Tier 3: ['hantaowang/hotrod-mapper:log', 'hantaowang/hotrod-route:log', 'library/postgres:9.4']
+        CPU-QUOTA: 46.6666666667
+        DISK: 17371409.0667
+        NET: 83626.6666667
+Config 1
+    Tier 1: ['hantaowang/hotrod-customer:log', 'hantaowang/hotrod-frontend', 'haproxy:1.7', 'nginx:1.7.9']
+        CPU-QUOTA: 23.3333333333
+        DISK: 26057113.6
+        NET: 167253.333333
+    Tier 2: ['hantaowang/hotrod-api:log', 'hantaowang/hotrod-driver:log', 'hantaowang/redis']
+        CPU-QUOTA: 70.0
+        DISK: 8685704.53333
+        NET: 83626.6666667
+    Tier 3: ['hantaowang/hotrod-mapper:log', 'hantaowang/hotrod-route:log', 'library/postgres:9.4']
+        CPU-QUOTA: 46.6666666667
+        DISK: 17371409.0667
+        NET: 250880.0
+Config 2
+    Tier 1: ['hantaowang/hotrod-customer:log', 'hantaowang/hotrod-frontend', 'haproxy:1.7', 'nginx:1.7.9']
+        CPU-QUOTA: 23.3333333333
+        DISK: 17371409.0667
+        NET: 250880.0
+    Tier 2: ['hantaowang/hotrod-api:log', 'hantaowang/hotrod-driver:log', 'hantaowang/redis']
+        CPU-QUOTA: 70.0
+        DISK: 8685704.53333
+        NET: 83626.6666667
+    Tier 3: ['hantaowang/hotrod-mapper:log', 'hantaowang/hotrod-route:log', 'library/postgres:9.4']
+        CPU-QUOTA: 46.6666666667
+        DISK: 26057113.6
+        NET: 167253.333333
+Config 3
+    Tier 1: ['hantaowang/hotrod-customer:log', 'hantaowang/hotrod-frontend', 'haproxy:1.7', 'nginx:1.7.9']
+        CPU-QUOTA: 23.3333333333
+        DISK: 17371409.0667
+        NET: 250880.0
+    Tier 2: ['hantaowang/hotrod-api:log', 'hantaowang/hotrod-driver:log', 'hantaowang/redis']
+        CPU-QUOTA: 46.6666666667
+        DISK: 8685704.53333
+        NET: 83626.6666667
+    Tier 3: ['hantaowang/hotrod-mapper:log', 'hantaowang/hotrod-route:log', 'library/postgres:9.4']
+        CPU-QUOTA: 70.0
+        DISK: 26057113.6
+        NET: 167253.333333
+Config 4
+    Tier 1: ['hantaowang/hotrod-customer:log', 'hantaowang/hotrod-frontend', 'haproxy:1.7', 'nginx:1.7.9']
+        CPU-QUOTA: 23.3333333333
+        DISK: 26057113.6
+        NET: 83626.6666667
+    Tier 2: ['hantaowang/hotrod-api:log', 'hantaowang/hotrod-driver:log', 'hantaowang/redis']
+        CPU-QUOTA: 46.6666666667
+        DISK: 17371409.0667
+        NET: 250880.0
+    Tier 3: ['hantaowang/hotrod-mapper:log', 'hantaowang/hotrod-route:log', 'library/postgres:9.4']
+        CPU-QUOTA: 70.0
+        DISK: 8685704.53333
+        NET: 167253.333333
+Config 5
+    Tier 1: ['hantaowang/hotrod-customer:log', 'hantaowang/hotrod-frontend', 'haproxy:1.7', 'nginx:1.7.9']
+        CPU-QUOTA: 23.3333333333
+        DISK: 26057113.6
+        NET: 250880.0
+    Tier 2: ['hantaowang/hotrod-api:log', 'hantaowang/hotrod-driver:log', 'hantaowang/redis']
+        CPU-QUOTA: 70.0
+        DISK: 17371409.0667
+        NET: 167253.333333
+    Tier 3: ['hantaowang/hotrod-mapper:log', 'hantaowang/hotrod-route:log', 'library/postgres:9.4']
+        CPU-QUOTA: 46.6666666667
+        DISK: 8685704.53333
+        NET: 83626.6666667
+Config 6
+    Tier 1: ['hantaowang/hotrod-customer:log', 'hantaowang/hotrod-frontend', 'haproxy:1.7', 'nginx:1.7.9']
+        CPU-QUOTA: 23.3333333333
+        DISK: 17371409.0667
+        NET: 83626.6666667
+    Tier 2: ['hantaowang/hotrod-api:log', 'hantaowang/hotrod-driver:log', 'hantaowang/redis']
+        CPU-QUOTA: 70.0
+        DISK: 26057113.6
+        NET: 167253.333333
+    Tier 3: ['hantaowang/hotrod-mapper:log', 'hantaowang/hotrod-route:log', 'library/postgres:9.4']
+        CPU-QUOTA: 46.6666666667
+        DISK: 8685704.53333
+        NET: 250880.0
+Config 7
+    Tier 1: ['hantaowang/hotrod-customer:log', 'hantaowang/hotrod-frontend', 'haproxy:1.7', 'nginx:1.7.9']
+        CPU-QUOTA: 23.3333333333
+        DISK: 8685704.53333
+        NET: 167253.333333
+    Tier 2: ['hantaowang/hotrod-api:log', 'hantaowang/hotrod-driver:log', 'hantaowang/redis']
+        CPU-QUOTA: 70.0
+        DISK: 17371409.0667
+        NET: 250880.0
+    Tier 3: ['hantaowang/hotrod-mapper:log', 'hantaowang/hotrod-route:log', 'library/postgres:9.4']
+        CPU-QUOTA: 46.6666666667
+        DISK: 26057113.6
+        NET: 83626.6666667
